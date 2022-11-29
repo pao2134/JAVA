@@ -6,17 +6,15 @@ public class Personal {
 
     String nombre, apellido, categoria;
     String dni, cuit;
-    Date fechaIngreso;
     double sueldo;
     String sexo = "";
 
-    public Personal(String nombre, String apellido, String categoria, String dni, String cuit, Date fechaIngreso, double sueldo) {
+    public Personal(String nombre, String apellido, String categoria, String dni, String cuit, double sueldo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.categoria = categoria;
         this.dni = dni;
         this.cuit = cuit;
-        this.fechaIngreso = fechaIngreso;
         this.sueldo = sueldo;
     }
 
@@ -63,14 +61,6 @@ public class Personal {
         this.cuit = cuit;
     }
 
-    public Date getFechaIngreso() {
-        return fechaIngreso;
-    }
-
-    public void setFechaIngreso(Date fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
-
     public double getSueldo() {
         return sueldo;
     }
@@ -78,5 +68,7 @@ public class Personal {
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
+
+
 
 }

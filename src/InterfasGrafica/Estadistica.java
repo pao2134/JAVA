@@ -1,9 +1,12 @@
 package InterfasGrafica;
 
+import img.ImgFondo;
+
 public class Estadistica extends javax.swing.JFrame {
 
-    
+    ImgFondo p = new ImgFondo();
     public Estadistica() {
+        this.setContentPane(new ImgFondo());
         initComponents();
         this.setTitle("Calculo Estadistico");
         this.setSize(230,300);
@@ -27,11 +30,13 @@ public class Estadistica extends javax.swing.JFrame {
         btn_regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(153, 102, 255));
+        jPanel1.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Calculos Estadisticos");
 
@@ -41,16 +46,16 @@ public class Estadistica extends javax.swing.JFrame {
         jButton1.setText("Calculo");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Varianza");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("Moda");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 153));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Media");
 
@@ -130,6 +135,7 @@ public class Estadistica extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_regresarMouseClicked

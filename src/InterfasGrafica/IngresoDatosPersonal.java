@@ -2,6 +2,7 @@ package InterfasGrafica;
 
 import Metodos.Metodos;
 import Personal.Personal;
+import img.ImgFondo;
 import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.*;
@@ -11,6 +12,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.RowFilter;
 
 public class IngresoDatosPersonal extends javax.swing.JFrame {
+    
+    ImgFondo p = new ImgFondo();
 
     private TableRowSorter trsfiltro;
     String filtro;
@@ -21,6 +24,8 @@ public class IngresoDatosPersonal extends javax.swing.JFrame {
     Vector cabecera = new Vector();
 
     public IngresoDatosPersonal() {
+        this.setContentPane(new ImgFondo());
+        
         initComponents();
         this.cabecera.addElement("Nombre");
         this.cabecera.addElement("Apellido");
@@ -64,19 +69,21 @@ public class IngresoDatosPersonal extends javax.swing.JFrame {
         btn_salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 153, 255));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setToolTipText("INGRESO DE DATOS DEL PERSONAL");
+        jPanel1.setOpaque(false);
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 255));
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("INGRESO DE INFORMACION DEL PERSONAL");
 
         jlb_nombre.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jlb_nombre.setForeground(new java.awt.Color(0, 0, 0));
+        jlb_nombre.setForeground(new java.awt.Color(0, 0, 153));
         jlb_nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlb_nombre.setText("Nombre");
         jlb_nombre.setToolTipText("");
@@ -93,7 +100,7 @@ public class IngresoDatosPersonal extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Apellido");
 
@@ -103,7 +110,7 @@ public class IngresoDatosPersonal extends javax.swing.JFrame {
         txt_apellido.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("DNI");
 
@@ -112,7 +119,7 @@ public class IngresoDatosPersonal extends javax.swing.JFrame {
         txt_dni.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 153));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("CUIT");
 
@@ -203,6 +210,11 @@ public class IngresoDatosPersonal extends javax.swing.JFrame {
         btn_salir.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         btn_salir.setForeground(new java.awt.Color(0, 0, 0));
         btn_salir.setText("Salir");
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -304,6 +316,7 @@ public class IngresoDatosPersonal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_bajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bajaActionPerformed
@@ -372,6 +385,15 @@ public class IngresoDatosPersonal extends javax.swing.JFrame {
         trsfiltro = new TableRowSorter(jtb_registropersonal.getModel());
         jtb_registropersonal.setRowSorter(trsfiltro);
     }//GEN-LAST:event_txt_nombreKeyTyped
+
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+        int a = JOptionPane.YES_NO_OPTION;
+        int resultado = JOptionPane.showConfirmDialog(this, "Desea Salir", "Salir", a);
+        if (resultado == 0) {
+            System.exit(0);
+
+        }
+    }//GEN-LAST:event_btn_salirActionPerformed
     public void filtro() {
         filtro = txt_nombre.getText();
         trsfiltro.setRowFilter(RowFilter.regexFilter(txt_nombre.getText(), 0));

@@ -3,6 +3,7 @@ package InterfasGrafica;
 
 import Metodos.Metodos;
 import Personal.Personal;
+import img.ImgFondo;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
@@ -12,12 +13,16 @@ import javax.swing.table.DefaultTableModel;
  * @author AyiGroup
  */
 public class ListarPersonal extends javax.swing.JFrame {
-
+    
+    ImgFondo p = new ImgFondo();
+    
     Personal personal = new Personal();
     Metodos metodos = new Metodos();
     DefaultTableModel md1Table;
     Vector vCabeceras = new Vector();
     public ListarPersonal() {
+        this.setContentPane(new ImgFondo());
+        
         initComponents();
         
         this.setTitle("Listar Personas");
@@ -52,8 +57,10 @@ public class ListarPersonal extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(153, 102, 255));
+        jPanel1.setOpaque(false);
 
         btnMostrar.setText("Mostrar Lista");
         btnMostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -121,6 +128,7 @@ public class ListarPersonal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed

@@ -2,15 +2,22 @@
 package InterfasGrafica;
 
 import Metodos.Metodos;
+import img.ImgFondo;
 import java.io.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 
 public class BajaPersonal extends javax.swing.JFrame {
+    
+      ImgFondo p = new ImgFondo();
+    
       Metodos metodos = new Metodos();
       DefaultTableModel mdlTable;
     public BajaPersonal() {
+        
+        this.setContentPane(new ImgFondo());
+        
         initComponents();
         this.setTitle("Baja De Personal");
         this.setSize(810,400);
@@ -33,12 +40,14 @@ public class BajaPersonal extends javax.swing.JFrame {
         btn_regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 153, 255));
         jPanel1.setForeground(new java.awt.Color(204, 153, 255));
+        jPanel1.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ELIMINE UNA OPCION");
 
@@ -136,6 +145,7 @@ public class BajaPersonal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_bajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bajaActionPerformed

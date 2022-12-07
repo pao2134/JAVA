@@ -1,5 +1,6 @@
 package MenuOpciones;
 
+import img.ImgFondo;
 import InterfasGrafica.BuscarPersonal;
 import InterfasGrafica.Condicion;
 import InterfasGrafica.Estadistica;
@@ -7,12 +8,20 @@ import InterfasGrafica.IngresoDatosPersonal;
 import InterfasGrafica.ListarPersonal;
 import javax.swing.JOptionPane;
 
-public class MenuOpciones extends javax.swing.JFrame {
 
+public class MenuOpciones extends javax.swing.JFrame {
+   
+    ImgFondo p = new ImgFondo();
+    
+    
+    
     public MenuOpciones() {
+        
+        this.setContentPane(new ImgFondo());
+    
         initComponents();
         this.setTitle("MENU OPCIONES");
-        this.setSize(350, 450);
+        this.setSize(310, 390);
         this.setLocationRelativeTo(null);
     }
 
@@ -26,7 +35,6 @@ public class MenuOpciones extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         btn_buscar = new javax.swing.JButton();
         btn_listar = new javax.swing.JButton();
         btn_condicion = new javax.swing.JButton();
@@ -34,18 +42,18 @@ public class MenuOpciones extends javax.swing.JFrame {
         btn_registrar = new javax.swing.JButton();
         btn_formacion = new javax.swing.JButton();
         btn_estadistica = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
+        jPanel1.setOpaque(false);
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel1MousePressed(evt);
+            }
+        });
         jPanel1.setLayout(null);
-
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ELIJA UNA OPCION");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(70, 40, 170, 50);
 
         btn_buscar.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btn_buscar.setForeground(new java.awt.Color(0, 0, 0));
@@ -56,7 +64,7 @@ public class MenuOpciones extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_buscar);
-        btn_buscar.setBounds(80, 140, 160, 26);
+        btn_buscar.setBounds(60, 70, 170, 30);
 
         btn_listar.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btn_listar.setForeground(new java.awt.Color(0, 0, 0));
@@ -67,7 +75,7 @@ public class MenuOpciones extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_listar);
-        btn_listar.setBounds(80, 180, 160, 30);
+        btn_listar.setBounds(60, 150, 170, 30);
 
         btn_condicion.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btn_condicion.setForeground(new java.awt.Color(0, 0, 0));
@@ -78,7 +86,7 @@ public class MenuOpciones extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_condicion);
-        btn_condicion.setBounds(80, 220, 160, 26);
+        btn_condicion.setBounds(60, 190, 170, 30);
 
         btn_salir.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btn_salir.setForeground(new java.awt.Color(0, 0, 0));
@@ -94,7 +102,7 @@ public class MenuOpciones extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_salir);
-        btn_salir.setBounds(200, 320, 73, 26);
+        btn_salir.setBounds(200, 330, 73, 22);
 
         btn_registrar.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btn_registrar.setForeground(new java.awt.Color(0, 0, 0));
@@ -104,8 +112,13 @@ public class MenuOpciones extends javax.swing.JFrame {
                 btn_registrarMouseClicked(evt);
             }
         });
+        btn_registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_registrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_registrar);
-        btn_registrar.setBounds(80, 100, 160, 26);
+        btn_registrar.setBounds(60, 110, 170, 30);
 
         btn_formacion.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_formacion.setForeground(new java.awt.Color(0, 0, 0));
@@ -116,7 +129,7 @@ public class MenuOpciones extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_formacion);
-        btn_formacion.setBounds(80, 280, 160, 26);
+        btn_formacion.setBounds(60, 270, 170, 30);
 
         btn_estadistica.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_estadistica.setForeground(new java.awt.Color(0, 0, 0));
@@ -126,8 +139,21 @@ public class MenuOpciones extends javax.swing.JFrame {
                 btn_estadisticaMouseClicked(evt);
             }
         });
+        btn_estadistica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_estadisticaActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_estadistica);
-        btn_estadistica.setBounds(80, 250, 160, 26);
+        btn_estadistica.setBounds(60, 230, 170, 30);
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("UTN - Fortran");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(67, 20, 160, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,10 +163,11 @@ public class MenuOpciones extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_buscarMouseClicked
@@ -186,6 +213,18 @@ public class MenuOpciones extends javax.swing.JFrame {
         formacion.setVisible(true);
     }//GEN-LAST:event_btn_formacionMouseClicked
 
+    private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_registrarActionPerformed
+
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel1MousePressed
+
+    private void btn_estadisticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_estadisticaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_estadisticaActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -217,7 +256,9 @@ public class MenuOpciones extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_condicion;
@@ -229,4 +270,5 @@ public class MenuOpciones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+    
 }

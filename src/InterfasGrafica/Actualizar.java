@@ -1,18 +1,24 @@
 package InterfasGrafica;
 
 import Metodos.Metodos;
+import img.ImgFondo;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Actualizar extends javax.swing.JFrame {
-
+    
+    ImgFondo p = new ImgFondo();
+    
     int filas;
     Metodos metodos = new Metodos();
     DefaultTableModel mdlTable;
 
     public Actualizar() {
+        
+        this.setContentPane(new ImgFondo());
+        
         initComponents();
         this.setLocationRelativeTo(null);
         jTable1.setModel(metodos.listaPersona());
@@ -43,16 +49,18 @@ public class Actualizar extends javax.swing.JFrame {
         btn_regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 153, 255));
+        jPanel1.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Actualizacion de Datos");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Nombre");
 
@@ -61,7 +69,7 @@ public class Actualizar extends javax.swing.JFrame {
         txt_nombre.setToolTipText("");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("Apellido");
 
         txt_apellido.setBackground(new java.awt.Color(255, 255, 255));
@@ -69,7 +77,7 @@ public class Actualizar extends javax.swing.JFrame {
         txt_apellido.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 153));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("DNI");
 
@@ -78,7 +86,7 @@ public class Actualizar extends javax.swing.JFrame {
         txt_dni.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 153));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("CUIT");
 
@@ -223,6 +231,7 @@ public class Actualizar extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
